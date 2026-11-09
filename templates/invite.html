@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Performance Invite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #0f1f0f; color: white; text-align: center; }
+        nav { background: #1a331a; padding: 15px; display: flex; justify-content: center; gap: 20px; }
+        nav a { color: #c9f2c9; text-decoration: none; font-weight: bold; }
+        form { background: white; color: black; max-width: 550px; margin: 20px auto; padding: 25px; border-radius: 15px; text-align: left; }
+        label { font-weight: bold; display: block; margin-top: 15px; }
+        input, textarea { width: 100%; padding: 12px; margin-top: 5px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; box-sizing: border-box; }
+        button { background: #25D366; color: white; border: none; padding: 16px; width: 100%; border-radius: 10px; font-size: 19px; font-weight: bold; margin-top: 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">HOME</a>
+        <a href="/links">ROOTED LINKS</a>
+        <a href="/invite">PERFORMANCE INVITE</a>
+    </nav>
+    <h1>Invite ROOTED To Perform</h1>
+    <p>Fill this in - it will go straight to Rooted Management on WhatsApp</p>
+    <form onsubmit="sendToWhatsApp(event)">
+        <label>Church Name / Location</label>
+        <input id="church" type="text" placeholder="e.g. Grace Church Soweto" required>
+        <label>Day of Performance</label>
+        <input id="day" type="date" required>
+        <label>Program / Agenda</label>
+        <textarea id="program" rows="5" placeholder="e.g. 10:00 - Praise & Worship, 11:00 - Rooted Performance" required></textarea>
+        <label>Your Name & Contact</label>
+        <input id="contact" type="text" placeholder="Your name + phone number">
+        <button type="submit">Send Invite on WhatsApp</button>
+    </form>
+    <script>
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            let church = document.getElementById('church').value;
+            let day = document.getElementById('day').value;
+            let program = document.getElementById('program').value;
+            let contact = document.getElementById('contact').value;
+            let message = "NEW PERFORMANCE INVITE FOR ROOTED MINISTRIES%0A%0A" + "Church / Location: " + church + "%0A" + "Day of Performance: " + day + "%0A" + "Program / Agenda: " + program + "%0A" + "Contact: " + contact;
+            window.open("https://wa.me/27671775796?text=" + message, "_blank");
+        }
+    </script>
+</body>
+</html>
